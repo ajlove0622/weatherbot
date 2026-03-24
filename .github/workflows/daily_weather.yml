@@ -1,0 +1,32 @@
+name: Daily Weather Alarm
+
+on:
+  schedule:
+    # POSIX cron 구문 (UTC 기준이므로 한국시간 -9시간)
+    # 아래 설정은 한국 시간 매일 오전 7시 0분 실행
+    - cron: '0 22 * * *'
+  workflow_dispatch: # 수동으로 실행해보고 싶을 때 버튼 생성
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # 가상 서버 환경 (리눅스)
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3 # 내 코드를 가상 서버로 가져옴
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        pip install requests
+
+    - name: Run Weather Bot
+      env: # 위에서 설정한 Secrets를 환경변수로 주입
+        KAKAO_TOKEN: ${{ secrets.KAKAO_TOKEN }}
+        WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+      run: python weather_bot.py
+
