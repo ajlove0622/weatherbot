@@ -7,7 +7,7 @@ from datetime import datetime
 WEATHER_KEY = os.environ.get('WEATHER_API_KEY')
 KAKAO_REST_KEY = os.environ.get('KAKAO_REST_KEY')
 KAKAO_REFRESH_TOKEN = os.environ.get('KAKAO_REFRESH_TOKEN')
-KAKKA_CLIENT_SECRET = os.environ.get('KAKKA_CLIENT_SECRET')
+KAKAO_CLIENT_SECRET = os.environ.get('KAKAO_CLIENT_SECRET')
 
 # 2. 기상청 단기예보 조회 (서울 기준 nx=60, ny=127)
 def get_weather():
@@ -50,7 +50,7 @@ def refresh_kakao_token():
         "grant_type": "refresh_token",
         "client_id": KAKAO_REST_KEY,
         "refresh_token": KAKAO_REFRESH_TOKEN,
-        "client_secret": KAKKA_CLIENT_SECRET
+        "client_secret": KAKAO_CLIENT_SECRET
     }
     res = requests.post(url, data=data)
     return res.json()['access_token']
