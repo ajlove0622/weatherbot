@@ -26,6 +26,9 @@ def get_weather():
     }
     
     res = requests.get(url, params=params)
+    # [디버깅용 추가] 서버가 준 실제 텍스트를 로그에 찍어봅니다.
+    print("Full Response:", res.text) 
+    
     data = res.json()
     
     items = data['response']['body']['items']['item']
