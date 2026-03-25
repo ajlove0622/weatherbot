@@ -52,7 +52,12 @@ def refresh_kakao_token():
         "refresh_token": KAKAO_REFRESH_TOKEN,
         "client_secret": KAKAO_CLIENT_SECRET
     }
-    res = requests.post(url, data=data)
+    
+    headers = {
+        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
+    }
+    
+    res = requests.post(url, data=data, headers=headers)
     return res.json()['access_token']
 
 # 4. 나에게 카톡 보내기
