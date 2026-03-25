@@ -4,7 +4,7 @@ on:
   schedule:
     # POSIX cron 구문 (UTC 기준이므로 한국시간 -9시간)
     # 아래 설정은 한국 시간 매일 오전 7시 0분 실행
-    - cron: '0 22 * * *'
+    - cron: '0 21 * * *'
   workflow_dispatch: # 수동으로 실행해보고 싶을 때 버튼 생성
 
 jobs:
@@ -26,7 +26,8 @@ jobs:
 
     - name: Run Weather Bot
       env: # 위에서 설정한 Secrets를 환경변수로 주입
-        KAKAO_TOKEN: ${{ secrets.KAKAO_TOKEN }}
+        KAKAO_REST_KEY: ${{ secrets.KAKAO_REST_KEY }}
+        KAKAO_REFRESH_TOKEN: ${{ secrets.KAKAO_REFRESH_TOKEN }}
         WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
       run: python weather_bot.py
 
