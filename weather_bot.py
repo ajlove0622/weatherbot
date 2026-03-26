@@ -64,7 +64,10 @@ def refresh_kakao_token():
 def send_kakao_msg(text):
     access_token = refresh_kakao_token()
     url = "https://kapi.kakao.com"
-    headers = {"Authorization": f"Bearer {access_token}"}
+    headers = {
+        "Authorization": "Bearer "+access_token,
+        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
+    }
     
     template = {
         "object_type": "text",
