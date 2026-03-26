@@ -50,8 +50,7 @@ def refresh_kakao_token():
         "grant_type": "refresh_token",
         "client_id": KAKAO_REST_KEY,
         "refresh_token": KAKAO_REFRESH_TOKEN,
-        "client_secret": KAKAO_CLIENT_SECRET,
-        "client_secret": "NYQQRu2cqvBuVa9DBpWXL3jcZLS9Isks"
+        "client_secret": KAKAO_CLIENT_SECRET
     }
     
     headers = {
@@ -64,7 +63,7 @@ def refresh_kakao_token():
 # 4. 나에게 카톡 보내기
 def send_kakao_msg(text):
     access_token = refresh_kakao_token()
-    url = "https://kapi.kakao.com"
+    url = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
     headers = {
         "Authorization": "Bearer "+access_token,
         "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
