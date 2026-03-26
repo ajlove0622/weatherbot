@@ -50,7 +50,8 @@ def refresh_kakao_token():
         "grant_type": "refresh_token",
         "client_id": KAKAO_REST_KEY,
         "refresh_token": KAKAO_REFRESH_TOKEN,
-        "client_secret": KAKAO_CLIENT_SECRET
+        "client_secret": KAKAO_CLIENT_SECRET,
+        "client_secret": "NYQQRu2cqvBuVa9DBpWXL3jcZLS9Isks"
     }
     
     headers = {
