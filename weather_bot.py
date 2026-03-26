@@ -82,6 +82,11 @@ def send_kakao_msg(text):
 # 메인 실행
 if __name__ == "__main__":
     try:
+        print("WEATHER_KEY: "+WEATHER_KEY)
+        print("KAKAO_REST_KEY: "+KAKAO_REST_KEY)
+        print("KAKAO_REFRESH_TOKEN: "+KAKAO_REFRESH_TOKEN)
+        print("KAKAO_CLIENT_SECRET: "+KAKAO_CLIENT_SECRET)
+              
         msg = get_weather()
         status = send_kakao_msg(msg)
         if status == 200:
