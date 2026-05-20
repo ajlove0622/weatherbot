@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>QR 코드 생성기</h1>
+
+    <textarea
+        id="text"
+        placeholder="텍스트 또는 URL 입력"
+    ></textarea>
+
+    <button id="generateBtn">
+        QR 생성
+    </button>
+
+    <div id="qrcode"></div>
+
+</div>
+
+<script src="qrcode.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
